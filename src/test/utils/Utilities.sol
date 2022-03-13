@@ -56,4 +56,10 @@ contract Utilities is DSTest {
         uint256 targetBlock = block.number + numBlocks;
         vm.roll(targetBlock);
     }
+
+    //move block.timestamp forward by a given number of seconds
+    function mineTime(uint256 numSeconds) external {
+        uint256 targetTimestamp = block.timestamp + numSeconds;
+        vm.warp(targetTimestamp);
+    }
 }
