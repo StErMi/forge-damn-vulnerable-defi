@@ -13,11 +13,19 @@ contract BaseTest is DSTest {
 
     address payable[] users;
     uint256 numOfUsers;
+    uint256 etherAmountForUser;
     string[] userLabels;
 
     function preSetup(uint _numOfUsers, string[] memory _userLabels) internal {
         numOfUsers = _numOfUsers;
         userLabels = _userLabels;
+        etherAmountForUser = 100 ether;
+    }
+
+    function preSetup(uint _numOfUsers, uint256 _etherAmountForUser, string[] memory _userLabels) internal {
+        numOfUsers = _numOfUsers;
+        userLabels = _userLabels;
+        etherAmountForUser = _etherAmountForUser;
     }
 
     function setUp() public virtual {
@@ -25,7 +33,7 @@ contract BaseTest is DSTest {
         utils = new Utilities();
 
         // setup users
-        users = utils.createUsers(numOfUsers, 100 ether, userLabels);
+        users = utils.createUsers(numOfUsers, etherAmountForUser, userLabels);
     }
 
     function runTest() public {
