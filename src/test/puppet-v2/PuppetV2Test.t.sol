@@ -1,17 +1,22 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.10;
 
-import {stdError} from "forge-std/stdlib.sol";
+import {stdError, stdCheats} from "forge-std/stdlib.sol";
 
 import {Utilities} from "../utils/Utilities.sol";
 import {BaseTest} from "../BaseTest.sol";
 
 import "../../DamnValuableToken.sol";
-// import "../../WETH9.sol";
 // import "../../puppet-v2/PuppetV2Pool.sol";
 
+interface WETH9 {
+    function transfer(address to, uint256 amount) external returns (bool);
+    function transferFrom(address from, address to, uint256 amount) external returns (bool);
+    function balanceOf(address account) external returns (uint256);
+}
 
-contract PuppetTest is BaseTest {
+
+contract PuppetTest is BaseTest, stdCheats {
 
     uint256 UNISWAP_INITIAL_TOKEN_RESERVE = 100 ether; 
     uint256 UNISWAP_INITIAL_WETH_RESERVE = 10 ether; 
@@ -22,7 +27,7 @@ contract PuppetTest is BaseTest {
 
 
     DamnValuableToken token;
-    // WETH9 weth;
+    WETH9 weth;
     // PuppetV2Pool lendingPool;
 
 
@@ -44,6 +49,9 @@ contract PuppetTest is BaseTest {
 
         token = new DamnValuableToken();
         // weth = new WETH9();
+
+        address _WETH9 = deployCode("artifacts/WETH9.json");
+        weth = WETH9(_WETH9);
     }
 
     
