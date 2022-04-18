@@ -13,3 +13,6 @@
 [submodule "lib/v2-core"]
 	path = lib/v2-core
 	url = https://github.com/uniswap/v2-core
+[submodule "lib/safe-contracts"]
+	path = lib/safe-contracts
+	url = https://github.com/gnosis/safe-contracts
