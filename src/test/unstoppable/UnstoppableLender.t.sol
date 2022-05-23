@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.10;
 
-import {stdError} from "forge-std/stdlib.sol";
-
 import "../../unstoppable/UnstoppableLender.sol";
 import "../../unstoppable/ReceiverUnstoppable.sol";
 
@@ -10,6 +8,7 @@ import "../../DamnValuableToken.sol";
 
 import {Utilities} from "../utils/Utilities.sol";
 import {BaseTest} from "../BaseTest.sol";
+import {stdError} from "forge-std/Test.sol";
 
 contract UnstoppableLenderTest is BaseTest {
 

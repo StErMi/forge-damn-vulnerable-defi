@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.10;
 
-import {stdError} from "forge-std/stdlib.sol";
-
 import "../../naive-receiver/NaiveReceiverLenderPool.sol";
 import "../../naive-receiver/FlashLoanReceiver.sol";
 

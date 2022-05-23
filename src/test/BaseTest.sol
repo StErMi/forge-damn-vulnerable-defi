@@ -1,14 +1,11 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.10;
 
-import {DSTest} from "ds-test/test.sol";
-import {Vm} from "forge-std/Vm.sol";
+import "forge-std/Test.sol";
 import {console} from "forge-std/console.sol";
 import {Utilities} from "./utils/Utilities.sol";
 
-contract BaseTest is DSTest {
-    Vm internal immutable vm = Vm(HEVM_ADDRESS);
-
+contract BaseTest is Test {
     Utilities internal utils;
 
     address payable[] users;

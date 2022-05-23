@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.10;
 
-import {stdError, stdCheats} from "forge-std/stdlib.sol";
-
 import {Utilities} from "../utils/Utilities.sol";
 import {BaseTest} from "../BaseTest.sol";
 
@@ -90,7 +88,7 @@ contract FlashSwapV2 is IUniswapV2Callee, ERC721Holder {
 
 }
 
-contract FreeRiderTest is BaseTest, stdCheats, ERC721Holder {
+contract FreeRiderTest is BaseTest, ERC721Holder {
 
     // The NFT marketplace will have 6 tokens, at 15 ETH each
     uint256 NFT_PRICE = 15 ether;

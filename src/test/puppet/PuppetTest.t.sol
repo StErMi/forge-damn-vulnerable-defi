@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.10;
 
-import {stdError, stdCheats} from "forge-std/stdlib.sol";
-
 import {Math} from "openzeppelin-contracts/utils/math/Math.sol";
 
 import {Utilities} from "../utils/Utilities.sol";
@@ -13,7 +11,7 @@ import "../../uniswap-v1/IUniswapV1Exchange.sol";
 import "../../uniswap-v1/IUniswapV1Factory.sol";
 import "../../puppet/PuppetPool.sol";
 
-contract PuppetTest is BaseTest, stdCheats {
+contract PuppetTest is BaseTest {
 
     uint256 UNISWAP_INITIAL_TOKEN_RESERVE = 10 ether; 
     uint256 UNISWAP_INITIAL_ETH_RESERVE = 10 ether; 
@@ -122,7 +120,7 @@ contract PuppetTest is BaseTest, stdCheats {
         uint256 ethToBorrowOneToken = lendingPool.calculateDepositRequired(1 ether);
 
         // Calc how much we can borrow
-        uint256 tokenWeCanBorrow = (attacker.balance/ethToBorrowOneToken) * 10 ** 18;
+        uint256 tokenWeCanBorrow = (attacker.balance * 10 ** 18) / ethToBorrowOneToken;
 
         // Get the max borrowable tokekns from the pool
         uint256 maxTokenToBorrow = Math.min(token.balanceOf(address(lendingPool)), tokenWeCanBorrow);
