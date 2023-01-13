@@ -171,6 +171,10 @@ contract ClimberTest is BaseTest {
         // withdraw all the funds
         PawnedClimberVault(address(vault)).withdrawAll(address(token));
         vm.stopPrank();
+
+        // PS: I think that this exploit is based on a vulnerability found in the first release of the OpenZeppelin Timelocker contract
+        // Checkout this post-mortem block post about it in the OpenZeppelin forum
+        // Link https://forum.openzeppelin.com/t/timelockcontroller-vulnerability-post-mortem/14958
     }
 
     // function buildRequest()
