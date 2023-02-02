@@ -2,6 +2,7 @@
 src = 'src'
 out = 'out'
 libs = ['lib']
+fs_permissions = [{ access = "read", path = "./artifacts"}, { access = "read", path = "./node_modules/@uniswap"}]
 #remappings = ['forge-std/=lib/forge-std/src/', 'openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/', 'ds-test/=lib/ds-test/src/']
 
 # See more config options https://github.com/gakonst/foundry/tree/master/config
